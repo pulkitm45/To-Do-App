@@ -1,0 +1,8 @@
+#add{
+    display:'flex'; 
+    width:"250px";
+    align-items:"center";
+    justify-content:"center";
+    margin:"auto";
+    gap:"30px"
+}
