@@ -36,8 +36,8 @@ function Heading() {
     }
     return (
         <>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: "center", justifyContent: "center", color: "white", gap: "12px", border: "2px solid white", width: "40%", marginTop: "5px", margin: "auto" }}>
-                <h1>Plan your day!</h1>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: "center", justifyContent: "center", color: "white", gap: "12px", width: "40%", marginTop: "10px", margin: "auto" }}>
+                <h1 style={{marginTop:"40px"}}>Plan your day!</h1>
                 <Box
                     height={100}
                     margin="auto"
@@ -74,7 +74,7 @@ function Heading() {
                 {list.length > 0 ?
                     list?.map((item) => {
                         return (
-                            <Task key={item} item={item} completedTasks={completedTasks} setcompletedTasks={setcompletedTasks} />
+                            <Task list={list} inputRef={inputRef} setlist = {setlist} key={item} item={item} completedTasks={completedTasks} setcompletedTasks={setcompletedTasks} totalTasks={totalTasks} settotalTasks={settotalTasks} />
                         )
                     }) : <h3 style={{ marginTop: "20px" }}>No Tasks to Display!!</h3>}
             </div>

@@ -21,6 +21,18 @@ function Task(props) {
         }
     }
 
+    function handleDelete(item){
+        let filterList = props.list.filter((val)=>{
+            return item!==val
+        })
+        props.setlist(filterList)
+        props.saveToLS()
+    }
+
+    function handleEdit(e,item){
+        e.target.value = item
+        console.log(e.target.value)
+    }
 
     return (
         <>
@@ -33,15 +45,15 @@ function Task(props) {
                 {/* <input type='checkbox' onChange={handleChange} checked={isChecked} style={{ marginRight: "10px" }} /><span style={{ textDecoration: isChecked ? 'line-through' : 'none', fontSize: "20px" }}>{props.item}</span> */}
                 <Checkbox size="small" onChange={handleChange} checked={isChecked} style={{ marginRight: "10px", color:"white" }} /><span style={{ textDecoration: isChecked ? 'line-through' : 'none', fontSize: "20px" }}>{props.item}</span> 
                 <div style={{ flexGrow: "1" }}></div>
-                <Box sx={{ '& > :not(style)': { m: 1 } }}>
+                {/* <Box sx={{ '& > :not(style)': { m: 1 } }}>
                 <Fab color="grey" aria-label="edit" size="small">
-                    <EditIcon/>
+                    <EditIcon onClick={()=>handleEdit(props.item)}/>
                 </Fab>
-                </Box>
+                </Box> */}
                 {/* <button style={{ marginRight: "10px", width: "60px", marginBottom: "5px" }}>Edit</button> */}
                 <Box sx={{ '& > :not(style)': { m: 1 } }}>
                 <Fab color="grey" aria-label="delete" size="small">
-                    <DeleteIcon/>
+                    <DeleteIcon onClick={()=>handleDelete(props.item)}/>
                 </Fab>
                 </Box>
                 {/* <button style={{ marginRight: "10px", width: "60px", marginBottom: "5px" }}>Delete</button> */}
